@@ -1,0 +1,8 @@
+I will build the Formula:
+
+Cell (F4)
+=MATCH("Start Word",'Sheet1'!A1:A500,0)
+
+' This Will give you the row of the start word. Is on if the Start Word is in Column A.
+
+
