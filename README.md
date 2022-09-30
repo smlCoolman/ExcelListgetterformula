@@ -1,6 +1,7 @@
 # ExcelListgetterformula
-This will be two formulas to put in Excel cells that will get a disceet amount of cells in a column based on criteria
+This will be two formulas to put in Excel cells that will get an amount of cells in a column based on criteria
 the first will start at the cell to the right of a word and end with a blank and then I will show how to have it stop at another word
+The list can have unknown entries and th entry number can change
 
 
     Bob 1
