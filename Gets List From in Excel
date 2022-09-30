@@ -3,6 +3,28 @@ I will build the Formula:
 Cell (F4)
 =MATCH("Start Word",'Sheet1'!A1:A500,0)
 
-' This Will give you the row of the start word. Is on if the Start Word is in Column A.
+' This Will give you the row of the start word if the Start Word is in Column A.
 
+Cell (F5)
+=MATCH("End Word",'Sheet1'!A1:A500,0)
 
+'This will get the row of the end word
+
+Target Cell
+=INDIRECT("'Sheet1'!B"&F4):INDIRECT("'Sheet1'!B"&F5-1)
+(Expanded)
+=INDIRECT("'Sheet1'!B" & MATCH("Start Word",'Sheet1'!A1:A500,0)):INDIRECT("'Sheet1'!B"&=MATCH("End Word",'Sheet1'!A1:A500,0)-1)
+
+'This will list all of the entries in coulmn B from the start word to the end word
+
+Cell (F6)
+=COUNTA(INDIRECT("'Sheet1'!B"&F4):'Sheet1'!B50)
+
+'This counts all of the Non blank entries from the start word to cell 50. The cell count can be how ever long the max of your list is. 
+
+Target Cell
+=INDIRECT("'Sheet1'!B" & F4):INDIRECT("'Sheet1'!B" & (F4+F6) -1)
+
+This will give the list in B from a start word to a blank. Here is the god aweful expanded formula.
+
+=INDIRECT("'Sheet1'!B" & MATCH("Start Word",'Sheet1'!A1:A500,0)):INDIRECT("'Sheet1'!B" & (MATCH("Start Word",'Sheet1'!A1:A500,0)+COUNTA(INDIRECT("'Sheet1'!B"&MATCH("Start Word",'Sheet1'!A1:A500,0)):'Sheet1'!B50)) -1)
